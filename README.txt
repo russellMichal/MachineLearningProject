@@ -1,0 +1,1 @@
+We are using https://waypointer.info/ to get a list of monuments. this will work for champaign but it will not work for a larger  scale. all the large scale databases charge money so we are stuck with this. from the site above we download a list of monuments in champaign we then look at the monuments lat and lon and compare it to ours to see if its close or not.
