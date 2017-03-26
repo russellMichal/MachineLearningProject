@@ -9,7 +9,7 @@ Created on Mon Mar  6 23:28:07 2017
 #a 2d array with the name of the landmark at [x][0] and the lat and log at 
 #[x][1] [x][2] where x is a monument. there are x monuments totle
 def readInInitData():
-    f= open("points.gpx","r");
+    f= open("..\points.gpx","r");
     fileLines = f.readlines();
     skipping = True;
     i=0;
