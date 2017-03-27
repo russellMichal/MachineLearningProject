@@ -33,7 +33,8 @@ def computeBinaryFeatures(startingPoints, dataList,bound):
             else:
                 retvec[i].append(0)
     
-        retvec[i].append(setWeatherFeature(startingPoints[i][0],startingPoints[i][1],startingPoints[i][2]))
+        if(i==1):
+            retvec[i].append(setWeatherFeature(startingPoints[i][0],startingPoints[i][1],startingPoints[i][2]))
         retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
 
     return retvec

@@ -14,7 +14,7 @@ import requests
 #setWeatherFeature(lat, long, dateTime)
 
 def setWeatherFeature(lat, long, dateTime):
-    YYYY,MM,DD,hour,minute = fomateInput(dateTime)
+    YYYY,MM,DD,hour,minute = formateInput(dateTime)
     
     #to save api calls for now the state and city are hard coded to IL and Urbana
     #r = requests.get("http://api.wunderground.com/api/f083252c5baea2f5/geolookup/q/"+str(lat)+","+str(long)+".json")
