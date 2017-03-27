@@ -11,16 +11,13 @@ from exporteToFile import exporteToFile
 
 def main():
     initData = readInInitData();
-    points = readInGPSPoints();#not made yet
+    points = readInGPSPoints();
     
     #http://www.somebits.com/weblog/tech/latitude-longitude-distance-approximations.html
     #.0001 ~ 36 feet
-    featureVector = computeBinaryFeatures(points, initData,0.00010);
-    
-    for i in range(0,len(featureVector)):
-        print(featureVector[i])
+    featureArray = computeBinaryFeatures(points, initData,0.00010);
      
-    exporteToFile(featureVector);
+    exporteToFile(featureArray);
                             
 
 main()

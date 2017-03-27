@@ -14,13 +14,20 @@ Created on Mon Mar  6 22:52:36 2017
 #bound is how far away a feature place can be and still get counted as close
 def computeBinaryFeatures(startingPoints, dataList,bound):
     retvec = []
-    
+    print(len(startingPoints))
     for i in range(0,len(startingPoints)):
         retvec.append([])
         
         for place in dataList:
-            print(place)
-            if(startingPoints[i][0]>float(place[1])-bound and startingPoints[i][1]<float(place[2])+bound):
+
+            #print(place)
+            #print(startingPoints[i][0])
+            #print(startingPoints[i][1])
+                
+            if(float(startingPoints[i][0])>float(place[1])-bound and 
+               float(startingPoints[i][0])<float(place[1])+bound and
+               float(startingPoints[i][1])>float(place[2])-bound and 
+               float(startingPoints[i][1])<float(place[2])+bound):
                 retvec[i].append(1)
             else:
                 retvec[i].append(0)
