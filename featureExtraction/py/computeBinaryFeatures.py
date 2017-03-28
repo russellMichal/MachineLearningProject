@@ -6,6 +6,8 @@ Created on Mon Mar  6 22:52:36 2017
 """
 
 from weather import setWeatherFeature
+from weather import addDate
+from weather import computeDayWeather
 #this site will convert lat to a distance in feet/miles
 #http://www.somebits.com/weblog/tech/latitude-longitude-distance-approximations.html
 
@@ -33,8 +35,14 @@ def computeBinaryFeatures(startingPoints, dataList,bound):
             else:
                 retvec[i].append(0)
     
-        if(i==1):
-            retvec[i].append(setWeatherFeature(startingPoints[i][0],startingPoints[i][1],startingPoints[i][2]))
+            addDate(startingPoints[i][2])
+            
+    print("running api calls on all dates")
+    d = computeDayWeather(startingPoints[i][0],startingPoints[i][1])
+    for i in range(0,len(startingPoints)): 
+        
+        
+        retvec[i].append(setWeatherFeature(startingPoints[i][2],d))
         retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
 
     return retvec
