@@ -8,41 +8,39 @@ Created on Mon Mar  6 22:52:36 2017
 from weather import setWeatherFeature
 from weather import addDate
 from weather import computeDayWeather
-#this site will convert lat to a distance in feet/miles
-#http://www.somebits.com/weblog/tech/latitude-longitude-distance-approximations.html
+from readInGPSPoints import distance
+#this site says that the 5th decimal of the lat = 1.1m
+#http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
 
 #the startingPoints is going to data read from micheals database, it will be in the format
 #lat, log, label
 #dataList is the list of features we have read in from readInInitData
 #bound is how far away a feature place can be and still get counted as close
-def computeBinaryFeatures(startingPoints, dataList,bound):
+def computeBinaryFeatures(startingPoints, dataList,bounds):
     retvec = []
-    print(len(startingPoints))
+    print("total array length: "+str(len(startingPoints)))
     for i in range(0,len(startingPoints)):
         retvec.append([])
-        
-        for place in dataList:
-
-            #print(place)
-            #print(startingPoints[i][0])
-            #print(startingPoints[i][1])
                 
-            if(float(startingPoints[i][0])>float(place[1])-bound and 
-               float(startingPoints[i][0])<float(place[1])+bound and
-               float(startingPoints[i][1])>float(place[2])-bound and 
-               float(startingPoints[i][1])<float(place[2])+bound):
-                retvec[i].append(1)
-            else:
+        for place in dataList:
+            dist = distance(startingPoints[i][0],startingPoints[i][1],place[1],place[2])
+            
+            try:
+                if(dist<=bounds[place[0]]):
+                    retvec[i].append(1)
+                else:
+                    retvec[i].append(0)
+            except KeyError:
                 retvec[i].append(0)
-    
+
             addDate(startingPoints[i][2])
             
-    print("running api calls on all dates")
-    d = computeDayWeather(startingPoints[i][0],startingPoints[i][1])
+    #print("running api calls on all dates")
+    #d = computeDayWeather(startingPoints[i][0],startingPoints[i][1])
     for i in range(0,len(startingPoints)): 
         
         
-        retvec[i].append(setWeatherFeature(startingPoints[i][2],d))
+        #retvec[i].append(setWeatherFeature(startingPoints[i][2],d))
         retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
 
     return retvec

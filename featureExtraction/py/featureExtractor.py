@@ -11,13 +11,12 @@ from exporteToFile import exporteToFile
 
 def main():
     initData = readInInitData();
-    points = readInGPSPoints();
-    
-    #http://www.somebits.com/weblog/tech/latitude-longitude-distance-approximations.html
-    #.0001 ~ 36 feet
-    featureArray = computeBinaryFeatures(points, initData,0.00010);
+    points,radiuses = readInGPSPoints(initData);
+    print(radiuses)
+    #this site says that the 5th decimal of the lat = 1.1m
+    #http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
+    featureArray = computeBinaryFeatures(points, initData,radiuses);
      
-    exporteToFile(featureArray);
-                            
+    exporteToFile(featureArray);                      
 
 main()

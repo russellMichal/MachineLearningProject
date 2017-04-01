@@ -126,6 +126,7 @@ def addDate(dateTime):
     
     dateL = dateTimeList[0]    
     dateList = dateL.split("/")
+
     date = dateList[0].zfill(2)+"/"+dateList[1].zfill(2)+"/"+dateList[2]
     
     global dates

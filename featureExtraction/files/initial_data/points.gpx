@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Waypointer http://waypointer.info">
+    <metadata>
+        <author>
+            <name>Waypointer http://waypointer.info</name>
+            <link href="http://waypointer.info">
+                <text>Waypointer</text>
+            </link>
+        </author>
+    </metadata>
+    <wpt lat="40.109880" lon="-88.228320">
+        <name>Alma Mater</name>
+        <desc></desc>
+    </wpt>
+    <wpt lat="40.112030" lon="-88.226770">
+        <name>Monument</name>
+        <desc></desc>
+    </wpt>
+    <wpt lat="40.104610" lon="-88.226150">
+        <name>Morrow's Plots</name>
+        <desc></desc>
+    </wpt>
+    <wpt lat="40.104660" lon="-88.226150">
+        <name>Morrow Plots</name>
+        <desc></desc>
+    </wpt>
+    <wpt lat="40.103010" lon="-88.226930">
+        <name>bell tower</name>
+        <desc>bell tower</desc>
+    </wpt>
+    <wpt lat="40.111160" lon="-88.224400">
+        <name>nuclear lab</name>
+        <desc>nuclear lab</desc>
+    </wpt>
+    <wpt lat="40.110080" lon="-88.225130">
+        <name>wesley church</name>
+        <desc>wesley church</desc>
+    </wpt>
+    <wpt lat="40.111860" lon="-88.228260">
+        <name>talbot</name>
+        <desc>talbot</desc>
+    </wpt>
+</gpx>
