@@ -6,7 +6,6 @@ Created on Mon Mar  6 22:52:36 2017
 """
 
 from weather import setWeatherFeature
-from weather import addDate
 from weather import computeDayWeather
 from readInGPSPoints import distance
 #this site says that the 5th decimal of the lat = 1.1m
@@ -18,6 +17,10 @@ from readInGPSPoints import distance
 #bound is how far away a feature place can be and still get counted as close
 def computeBinaryFeatures(startingPoints, dataList,bounds):
     retvec = []
+    
+    #print("running api calls on all dates")
+    #d = computeDayWeather(startingPoints[i][0],startingPoints[i][1])
+    
     print("total array length: "+str(len(startingPoints)))
     for i in range(0,len(startingPoints)):
         retvec.append([])
@@ -32,15 +35,17 @@ def computeBinaryFeatures(startingPoints, dataList,bounds):
                     retvec[i].append(0)
             except KeyError:
                 retvec[i].append(0)
-
-            addDate(startingPoints[i][2])
+                
+        #retvec[i].append(setWeatherFeature(startingPoints[i][2],d))
+        retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
+        #addDate(startingPoints[i][2])
             
     #print("running api calls on all dates")
     #d = computeDayWeather(startingPoints[i][0],startingPoints[i][1])
-    for i in range(0,len(startingPoints)): 
+    #for i in range(0,len(startingPoints)): 
         
         
         #retvec[i].append(setWeatherFeature(startingPoints[i][2],d))
-        retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
+        #retvec[i].append(startingPoints[i][len(startingPoints[i])-1])
 
     return retvec

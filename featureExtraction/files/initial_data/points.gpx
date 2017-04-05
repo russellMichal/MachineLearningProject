@@ -8,22 +8,6 @@
             </link>
         </author>
     </metadata>
-    <wpt lat="40.109880" lon="-88.228320">
-        <name>Alma Mater</name>
-        <desc></desc>
-    </wpt>
-    <wpt lat="40.112030" lon="-88.226770">
-        <name>Monument</name>
-        <desc></desc>
-    </wpt>
-    <wpt lat="40.104610" lon="-88.226150">
-        <name>Morrow's Plots</name>
-        <desc></desc>
-    </wpt>
-    <wpt lat="40.104660" lon="-88.226150">
-        <name>Morrow Plots</name>
-        <desc></desc>
-    </wpt>
     <wpt lat="40.103010" lon="-88.226930">
         <name>bell tower</name>
         <desc>bell tower</desc>
@@ -39,5 +23,21 @@
     <wpt lat="40.111860" lon="-88.228260">
         <name>talbot</name>
         <desc>talbot</desc>
+    </wpt>
+    <wpt lat="40.111900" lon="-88.226800">
+        <name>monument_on_engr_quad</name>
+        <desc>monument_on_engr_quad</desc>
+    </wpt>
+    <wpt lat="40.109830" lon="-88.228390">
+        <name>alma</name>
+        <desc>alma</desc>
+    </wpt>
+    <wpt lat="40.104500" lon="-88.226180">
+        <name>morrow_plots</name>
+        <desc>morrow_plots</desc>
+    </wpt>
+    <wpt lat="40.099200" lon="-88.237510">
+        <name>cemetery</name>
+        <desc>cemetery</desc>
     </wpt>
 </gpx>

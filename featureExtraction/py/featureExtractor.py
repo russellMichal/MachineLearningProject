@@ -12,7 +12,7 @@ from exporteToFile import exporteToFile
 def main():
     initData = readInInitData();
     points,radiuses = readInGPSPoints(initData);
-    print(radiuses)
+
     #this site says that the 5th decimal of the lat = 1.1m
     #http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
     featureArray = computeBinaryFeatures(points, initData,radiuses);
