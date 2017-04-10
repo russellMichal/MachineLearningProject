@@ -160,4 +160,32 @@ def distance(x1,y1,x2,y2):
     x = pow((float(x2)-float(x1)),2)
     y = pow((float(y2)-float(y1)),2)
     return math.sqrt(x+y)
+
+
+
+
+
+
+
+
+
+
+
+#this function should probably be in its own file but it uses a lot of the methods in this file to read the .csv file so it is here for now
+#this function reads the file that holds the avg gc pre day if the gc for the day is >40 we say there is weather on this day
+#>40 may change it was just a guess by micheal
+def getAvgGcPerDay():
+    avgGcPerDay = {};
+    days,maxDist = readFile("..\\files\\initial_data\\avg_daily_gc.csv",['filler1','filler2'], hasAnomalies=False, avgDistance = 0.0)
+    for day in days:
+        gc = day[1]
+        date = day[2]
+        avgGcPerDay.update({date:float(gc)});
+                          
+    if(float(gc)>40):
+        print (avgGcPerDay)
+    
+    return avgGcPerDay
+                    
+        
         

@@ -17,6 +17,6 @@ def main():
     #http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
     featureArray = computeBinaryFeatures(points, initData,radiuses);
      
-    exporteToFile(featureArray);                      
+    exporteToFile(featureArray,initData);                      
 
 main()
