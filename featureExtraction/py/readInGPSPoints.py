@@ -11,31 +11,31 @@ def readInGPSPoints(places):
     radius = {}
     
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\cpmi.csv",places,placeName="nuclear lab")
+    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\cpmi.csv",places,placeName="nuclear lab")
     array = temp
     if(maxDist!=None):
         radius.update(maxDist)
    
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\talbot_lab.csv",places, placeName="talbot")
+    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\talbot_lab.csv",places, placeName="talbot")
     array += temp
     if(maxDist!=None):
         radius.update(maxDist)
         
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\belltower.csv",places, placeName="bell tower")
+    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\belltower.csv",places, placeName="bell tower")
     array += temp
     if(maxDist!=None):
         radius.update(maxDist)
     
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\alma.csv",places, placeName="alma")
+    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\alma.csv",places, placeName="alma")
     array += temp
     if(maxDist!=None):
         radius.update(maxDist) 
     
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\wesley_church.csv",places, placeName="wesley church")
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\wesley_church.csv",places, placeName="wesley church")
     array += temp
     if(maxDist!=None):
         radius.update(maxDist) 
@@ -51,23 +51,78 @@ def readInGPSPoints(places):
         radius.update(maxDist) 
         
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\morrow_plots.csv",places,hasAnomalies=False, placeName="morrow_plots", avgDistance = avgDist)
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\morrow_plots.csv",places,hasAnomalies=False, placeName="morrow_plots", avgDistance = avgDist)
     array += temp
     if(maxDist!=None):
         radius.update(maxDist)
         
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\monument_on_engr_quad.csv",places,hasAnomalies=False, placeName="monument_on_engr_quad",avgDistance = avgDist)
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\monument_on_engr_quad.csv",places,hasAnomalies=False, placeName="monument_on_engr_quad",avgDistance = avgDist)
     array += temp
     if(maxDist!=None):
         radius.update(maxDist)
         
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\cemetery.csv",places, hasAnomalies=False,placeName="cemetery",avgDistance = avgDist)
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\cemetery.csv",places, hasAnomalies=False,placeName="cemetery",avgDistance = avgDist)
     array += temp
     if(maxDist!=None):
-        radius.update(maxDist)      
+        radius.update(maxDist)
+        
+    #add positive points that are not near monuments but are positive because of weather
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_18_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
      
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_25_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_28_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_31_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\02_01_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\02_13_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\03_05_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\03_09_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\03_13_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist) 
+        
     print("radius"+str(radius))
     return array,radius
 
