@@ -8,17 +8,14 @@ Created on Mon Mar  6 22:45:52 2017
 #exportes the features to a file
 #features is the list of features extracted by the program
 #it is in the formate: (x1,x2,...,xn,y) where y is the label and the xs are the features
-def exporteToFile(features,places):
-    header = []
+def exporteToFile(features,header):
     file = open("data.txt","w")
-    
-    for place in places:
-        header.append(place[0])
+
     header.append('weather')
     header.append('label')
     file.write(str(header))
     file.write("\n")
-      
+
     for i in range(0,len(features)):
         file.write(str(features[i]))
         file.write("\n")

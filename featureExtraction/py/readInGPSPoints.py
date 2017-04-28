@@ -16,17 +16,17 @@ def readInGPSPoints(places):
     if(maxDist!=None):
         radius.update(maxDist)
    
-    #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\talbot_lab.csv",places, placeName="talbot")
-    array += temp
-    if(maxDist!=None):
-        radius.update(maxDist)
+#    #add the data to the array
+#    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\talbot_lab.csv",places, placeName="talbot")
+#    array += temp
+#    if(maxDist!=None):
+#        radius.update(maxDist)
         
-    #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\belltower.csv",places, placeName="bell tower")
-    array += temp
-    if(maxDist!=None):
-        radius.update(maxDist)
+#    #add the data to the array
+#    temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\belltower.csv",places, placeName="bell tower")
+#    array += temp
+#    if(maxDist!=None):
+#        radius.update(maxDist)
     
     #add the data to the array
     temp,maxDist = readFile("..\\files\\initial_data\\radiationPoints\\alma.csv",places, placeName="alma")
@@ -68,12 +68,30 @@ def readInGPSPoints(places):
     if(maxDist!=None):
         radius.update(maxDist)
         
-    #add positive points that are not near monuments but are positive because of weather
+#    #add the data to the array
+#    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\arc.csv",places, hasAnomalies=False,placeName="ARC",avgDistance = avgDist)
+#    array += temp
+#    if(maxDist!=None):
+#        radius.update(maxDist)
+        
     #add the data to the array
-    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_18_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\Townsend Hall.csv",places, hasAnomalies=False,placeName="Townsend Hall",avgDistance = avgDist)
     array += temp
     if(maxDist!=None):
-        radius.update(maxDist) 
+        radius.update(maxDist)
+        
+    #add the data to the array
+    temp,maxDist = readFile("..\\files\\initial_data\\noRadiationPoints\\grainger.csv",places, hasAnomalies=False,placeName="Grainger",avgDistance = avgDist)
+    array += temp
+    if(maxDist!=None):
+        radius.update(maxDist)
+        
+#    #add positive points that are not near monuments but are positive because of weather
+#    #add the data to the array
+#    temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_18_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)
+#    array += temp
+#    if(maxDist!=None):
+#        radius.update(maxDist) 
      
     #add the data to the array
     temp,maxDist = readFile("..\\files\\initial_data\\WeatherPoints\\01_25_2017.csv",places, hasAnomalies=True, avgDistance = avgDist)

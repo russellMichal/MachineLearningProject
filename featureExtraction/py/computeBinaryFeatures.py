@@ -9,6 +9,7 @@ from weather import setWeatherFeature
 from weather import computeDayWeather
 from readInGPSPoints import distance
 from readInGPSPoints import getAvgGcPerDay
+import numpy as np
 #this site says that the 5th decimal of the lat = 1.1m
 #http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
 
@@ -16,7 +17,7 @@ from readInGPSPoints import getAvgGcPerDay
 #lat, log, label
 #dataList is the list of features we have read in from readInInitData
 #bound is how far away a feature place can be and still get counted as close
-def computeBinaryFeatures(startingPoints, dataList,bounds):
+def computeBinaryFeatures(startingPoints, dataList,bounds,placeProperties):
     retvec = []
     
     #print("running api calls on all dates")
@@ -28,19 +29,21 @@ def computeBinaryFeatures(startingPoints, dataList,bounds):
 
     print("total array length: "+str(len(startingPoints)))
     for i in range(0,len(startingPoints)):
-        retvec.append([])
+        #retvec.append([])
+        properties=np.zeros(len(placeProperties),dtype = np.int8)
                 
         for place in dataList:
             dist = distance(startingPoints[i][0],startingPoints[i][1],place[1],place[2])
-            
-            try:
-                if(dist<=bounds[place[0]]):
-                    retvec[i].append(1)
-                else:
-                    retvec[i].append(0)
-            except KeyError:
-                retvec[i].append(0)
-           
+
+            if(place[0] in bounds.keys() and dist<=bounds[place[0]]):
+                for j in range(0,len(placeProperties)):
+                    for placeProp in place[3].split(","):
+                        if(placeProperties[j] == placeProp):
+                            properties[j]=1
+                
+
+        retvec.append(properties.tolist().copy());
+
         #add weather feature based of date
         if(avgDailyGC[getDate(startingPoints[i][2])]>=40):
             retvec[i].append(1)

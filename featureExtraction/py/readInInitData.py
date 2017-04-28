@@ -14,6 +14,7 @@ def readInInitData():
     skipping = True;
     i=0;
     arr = [];
+    featureHeader=[];
     #arr.append([])
         
     for line in fileLines:
@@ -45,6 +46,19 @@ def readInInitData():
 
             arr[i].insert(0,line.strip()[start:end]);
                
-            i+=1;
             
-    return arr;
+        if("<desc" in line.strip()):    
+            start = line.strip().find('>')+1;
+            end = line.strip().find('<', start);
+
+
+            arr[i].append(line.strip()[start:end]);
+       
+            properties = line.strip()[start:end].split(",")
+            
+            for prop in properties:
+                if(prop not in featureHeader):   
+                    featureHeader.append(prop);
+            i+=1;
+          
+    return arr,featureHeader;

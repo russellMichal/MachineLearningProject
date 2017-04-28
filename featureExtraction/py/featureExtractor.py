@@ -10,13 +10,13 @@ from computeBinaryFeatures import computeBinaryFeatures
 from exporteToFile import exporteToFile
 
 def main():
-    initData = readInInitData();
+    initData,headerInfo = readInInitData();
     points,radiuses = readInGPSPoints(initData);
-
+                        
     #this site says that the 5th decimal of the lat = 1.1m
     #http://gizmodo.com/how-precise-is-one-degree-of-longitude-or-latitude-1631241162
-    featureArray = computeBinaryFeatures(points, initData,radiuses);
+    featureArray = computeBinaryFeatures(points, initData,radiuses,headerInfo);
      
-    exporteToFile(featureArray,initData);                      
+    exporteToFile(featureArray,headerInfo);                      
 
 main()
